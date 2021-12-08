@@ -38,7 +38,7 @@ export default function mouth(props: { style: string }) {
             width: "100%",
             height: "100%",
             position: "absolute",
-            top: "-25%%",
+            top: "-25%",
             left: "-2%",
           }}
           src={Icons.Mouth.teethMouth}

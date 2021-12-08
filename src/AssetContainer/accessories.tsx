@@ -30,6 +30,13 @@ export const AccessoriesPanel = ({ handleAccessoriesClick }) => {
           onClick={() => assetClick("laptop")}
         />
       </div>
+      <div>
+        <img
+          src={Icons.Tabs.remove}
+          alt="remove"
+          onClick={() => assetClick("")}
+        />
+      </div>
     </div>
   );
 };

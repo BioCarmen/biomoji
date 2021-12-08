@@ -1,7 +1,7 @@
 import React from "react";
 import { Icons } from "src/icons";
 
-export default function eyes(props: { style: string }): SVGElement {
+export default function eyes(props: { style: string }) {
   const { style } = props;
   switch (style) {
     case "eye1": {
@@ -31,7 +31,7 @@ export default function eyes(props: { style: string }): SVGElement {
         ></img>
       );
 
-    default:
+    case "eye3":
       return (
         <img
           style={{
@@ -44,5 +44,7 @@ export default function eyes(props: { style: string }): SVGElement {
           src={Icons.Eyes.eye3}
         ></img>
       );
+    default:
+      return <></>;
   }
 }

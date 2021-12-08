@@ -24,6 +24,13 @@ export const CellsPanel = ({ handleCellClick }) => {
           onClick={() => assetClick("dendrites")}
         />
       </div>
+      <div>
+        <img
+          src={Icons.Tabs.remove}
+          alt="remove"
+          onClick={() => assetClick("")}
+        />
+      </div>
     </div>
   );
 };

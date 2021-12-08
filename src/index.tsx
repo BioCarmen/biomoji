@@ -33,8 +33,8 @@ export const ReactNiceAvatar = (props) => {
   } = props;
   const config = genConfig(props);
 
-  const [face, setFace] = useState("default");
-  const [eyeStyle, setEyeStyle] = useState("eye1");
+  const [face, setFace] = useState("");
+  const [eyeStyle, setEyeStyle] = useState("");
   const [handsStyle, setHandsStyle] = useState("hands1");
   const [fillColor, setFillColor] = useState("#92dbe0");
   const [strokeColor, setStrokeColor] = useState("#368c8e");
@@ -122,116 +122,122 @@ export const ReactNiceAvatar = (props) => {
       <div className="playground">
         <div className="playground-header">Build-a-biomoji</div>
         <div className="playground-body">
-          {/* Select a base shape to get started */}
-          <div
-            id={"download-item"}
-            className={`${className} editor playground-display`}
-            style={{
-              background: config.bgColor,
-              overflow: "hidden",
-              borderRadius,
-              ...style,
-            }}
-          >
+          {!face && (
+            <div className="placeholder">
+              Select a base shape to get started
+            </div>
+          )}
+          {face && (
             <div
+              id={"download-item"}
+              className={`${className} editor playground-display`}
               style={{
-                position: "relative",
-                width: "100%",
-                height: "100%",
+                background: config.bgColor,
+                overflow: "hidden",
+                borderRadius,
+                ...style,
               }}
             >
               <div
                 style={{
-                  position: "absolute",
-                  bottom: 0,
+                  position: "relative",
                   width: "100%",
-                  height: "90%",
+                  height: "100%",
                 }}
               >
-                <Face
-                  fillColor={fillColor}
-                  strokeColor={strokeColor}
-                  shape={face}
-                />
-                <Hands
-                  style={leftHand}
-                  fillColor={fillColor}
-                  strokeColor={strokeColor}
-                  face={face}
-                  position={"left"}
-                />
-                <Hands
-                  style={rightHand}
-                  fillColor={fillColor}
-                  strokeColor={strokeColor}
-                  face={face}
-                  position={"right"}
-                />
-                <Cell
-                  style={cellStyle}
-                  fillColor={fillColor}
-                  strokeColor={strokeColor}
-                  face={face}
-                  position={"right"}
-                />
-                {/* <Hat color={config.hatColor} style={config.hatStyle} /> */}
-                {/* {config.hatStyle === "none" && (
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    width: "100%",
+                    height: "90%",
+                  }}
+                >
+                  <Face
+                    fillColor={fillColor}
+                    strokeColor={strokeColor}
+                    shape={face}
+                  />
+                  <Hands
+                    style={leftHand}
+                    fillColor={fillColor}
+                    strokeColor={strokeColor}
+                    face={face}
+                    position={"left"}
+                  />
+                  <Hands
+                    style={rightHand}
+                    fillColor={fillColor}
+                    strokeColor={strokeColor}
+                    face={face}
+                    position={"right"}
+                  />
+                  <Cell
+                    style={cellStyle}
+                    fillColor={fillColor}
+                    strokeColor={strokeColor}
+                    face={face}
+                    position={"right"}
+                  />
+                  {/* <Hat color={config.hatColor} style={config.hatStyle} /> */}
+                  {/* {config.hatStyle === "none" && (
               <Hair
                 color={config.hairColor}
                 style={config.hairStyle}
                 colorRandom={hairColorRandom}
               />
             )} */}
-                <Accessories
-                  type={accessory1}
-                  position={1}
-                  selected={selectedPos === 1}
-                />
-                <Accessories
-                  type={accessory2}
-                  position={2}
-                  selected={selectedPos === 2}
-                />
-                <Accessories
-                  type={accessory3}
-                  position={3}
-                  selected={selectedPos === 3}
-                />
-                <Accessories
-                  type={accessory4}
-                  position={4}
-                  selected={selectedPos === 4}
-                />
-                {/* Face detail */}
-                <div
-                  style={{
-                    position: "absolute",
-                    right: "-3%",
-                    top: "30%",
-                    width: "100%",
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  {/* <Eyebrow style={config.eyeBrowStyle} /> */}
-                  <Eye style={eyeStyle} />
-                  <Mouth style={mouthStyle} />
-                  {/* <Glasses style={config.glassesStyle} />
+                  <Accessories
+                    type={accessory1}
+                    position={1}
+                    selected={selectedPos === 1}
+                  />
+                  <Accessories
+                    type={accessory2}
+                    position={2}
+                    selected={selectedPos === 2}
+                  />
+                  <Accessories
+                    type={accessory3}
+                    position={3}
+                    selected={selectedPos === 3}
+                  />
+                  <Accessories
+                    type={accessory4}
+                    position={4}
+                    selected={selectedPos === 4}
+                  />
+                  {/* Face detail */}
+                  <div
+                    style={{
+                      position: "absolute",
+                      right: "-3%",
+                      top: "30%",
+                      width: "100%",
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {/* <Eyebrow style={config.eyeBrowStyle} /> */}
+                    <Eye style={eyeStyle} />
+                    <Mouth style={mouthStyle} />
+                    {/* <Glasses style={config.glassesStyle} />
               <Ear color={config.faceColor} size={config.earSize} />
               <Nose style={config.noseStyle} />
               <Mouth style={config.mouthStyle} /> */}
-                </div>
+                  </div>
 
-                {/* <Shirt color={config.shirtColor} style={config.shirtStyle} /> */}
+                  {/* <Shirt color={config.shirtColor} style={config.shirtStyle} /> */}
+                </div>
               </div>
+              {/* <Face color={config.faceColor} /> */}
             </div>
-            {/* <Face color={config.faceColor} /> */}
-          </div>
+          )}
         </div>
-        <button onClick={download}>download</button>
+        {face && <button onClick={download}>download</button>}
       </div>
       <div className="playground-editor">
         <div className="playground-editor__title">Customization</div>

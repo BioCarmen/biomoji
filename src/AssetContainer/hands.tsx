@@ -38,6 +38,13 @@ export const HandsPanel = ({ handleHandsClick }) => {
           onClick={() => assetClick("handWithPizza")}
         />
       </div>
+      <div>
+        <img
+          src={Icons.Tabs.remove}
+          alt="remove"
+          onClick={() => assetClick("")}
+        />
+      </div>
     </div>
   );
 };

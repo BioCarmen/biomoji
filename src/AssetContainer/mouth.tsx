@@ -1,5 +1,4 @@
 import React from "react";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { Icons } from "../icons";
 import "./assets.scss";
 
@@ -29,6 +28,13 @@ export const MouthPanel = ({ handleMouthClick }) => {
           src={Icons.Mouth.teethMouth}
           alt="teeth mouth"
           onClick={() => assetClick("teeth")}
+        />
+      </div>
+      <div>
+        <img
+          src={Icons.Tabs.remove}
+          alt="remove"
+          onClick={() => assetClick("")}
         />
       </div>
     </div>

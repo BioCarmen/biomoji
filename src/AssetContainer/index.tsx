@@ -80,7 +80,7 @@ export const AssetContainer = ({
       >
         <TabList>
           <CustomTab>
-            <img className="tabs-image " src={Icons.Tabs.vector}></img>
+            <img className="tabs-image " src={Icons.Tabs.base}></img>
             <h1>Base</h1>
           </CustomTab>
           <CustomTab>
@@ -92,15 +92,15 @@ export const AssetContainer = ({
             <h1>Eyes</h1>
           </CustomTab>
           <CustomTab>
-            <img className="tabs-image " src={Icons.Tabs.eyes}></img>
+            <img className="tabs-image " src={Icons.Tabs.mouth}></img>
             <h1>Mouth</h1>
           </CustomTab>
           <CustomTab>
-            <img className="tabs-image " src={Icons.Tabs.eyes}></img>
+            <img className="tabs-image " src={Icons.Tabs.accessories}></img>
             <h1>Clothing</h1>
           </CustomTab>
           <CustomTab>
-            <img className="tabs-image " src={Icons.Tabs.eyes}></img>
+            <img className="tabs-image " src={Icons.Tabs.hands}></img>
             <h1>Handled</h1>
           </CustomTab>
           <CustomTab>
@@ -122,10 +122,17 @@ export const AssetContainer = ({
           <EyesPanel handleEyeClick={handleEyeClick} />
         </TabPanel>
         <TabPanel>
-          <HandsPanel handleHandsClick={handleHandsClick} />
+          <MouthPanel handleMouthClick={handleMouthClick} />
         </TabPanel>
         <TabPanel>
-          <MouthPanel handleMouthClick={handleMouthClick} />
+          <AccessoriesPanel handleAccessoriesClick={handleAccessoriesClick} />
+        </TabPanel>
+        <TabPanel>
+          <HandsPanel handleHandsClick={handleHandsClick} />
+        </TabPanel>
+
+        <TabPanel>
+          <AccessoriesPanel handleAccessoriesClick={handleAccessoriesClick} />
         </TabPanel>
         <TabPanel>
           <AccessoriesPanel handleAccessoriesClick={handleAccessoriesClick} />

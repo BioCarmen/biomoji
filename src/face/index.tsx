@@ -16,7 +16,9 @@ export default function face(props: {
     case "narrow":
       return <Icon name="narrow-face" fill={fillColor} stroke={strokeColor} />;
 
-    default:
+    case "default":
       return <Icon name="default-face" fill={fillColor} stroke={strokeColor} />;
+    default:
+      return <></>;
   }
 }
