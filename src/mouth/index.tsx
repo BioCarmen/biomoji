@@ -1,16 +1,49 @@
 import React from "react";
+import { Icons } from "src/icons";
 
-import Laugh from "./laugh";
-import Smile from "./smile";
-import Peace from "./peace";
-
-export default function mouth (props: { style: string }): SVGElement {
+export default function mouth(props: { style: string }) {
   const { style } = props;
   switch (style) {
-    case "laugh": return <Laugh />;
-    case "smile": return <Smile />;
-    case "peace":
-    default:
-      return <Peace />;
+    case "open":
+      return (
+        <img
+          style={{
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            top: "-25%",
+            left: "-2%",
+          }}
+          src={Icons.Mouth.openMouth}
+        />
+      );
+
+    case "smile":
+      return (
+        <img
+          style={{
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            top: "-25%",
+            left: "-2%",
+          }}
+          src={Icons.Mouth.smileMouth}
+        />
+      );
+    case "teeth":
+      return (
+        <img
+          style={{
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            top: "-25%%",
+            left: "-2%",
+          }}
+          src={Icons.Mouth.teethMouth}
+        />
+      );
   }
+  return <></>;
 }

@@ -4,10 +4,13 @@ export default function handWithTube(props: {
   fillColor: string;
   strokeColor: string;
   face: "default" | "narrow" | "rounder";
+  position: "left" | "right";
+  style;
 }) {
-  const { fillColor, strokeColor, face } = props;
+  const { fillColor, strokeColor, face, position, style } = props;
   const top = "-5%";
   const left = "-1%";
+
   switch (face) {
     case "default":
       return (
@@ -16,13 +19,7 @@ export default function handWithTube(props: {
           width="100"
           height="100"
           viewBox="0 0 100 100"
-          style={{
-            width: "100%",
-            height: "100%",
-            position: "absolute",
-            top: top,
-            left: left,
-          }}
+          style={style}
         >
           <g id="eyes">
             <path

@@ -18,11 +18,36 @@ export const Icons = {
   },
   Hands: {
     hands1: require("./assets/hands/default/hand-with-tube.svg").default,
-    hands2: require("./assets/hands/default/hands-2.svg").default,
+
+    handWithBeer: require("././assets/hands/default/hand-with-beer.svg")
+      .default,
+    handWithPizza: require("././assets/hands/default/hand-with-pizza.svg")
+      .default,
+    handWithBurger: require("././assets/hands/default/hand-with-burger.svg")
+      .default,
   },
   Accessories: {
     cat: require("./assets/accessories/cat.svg").default,
     dog: require("./assets/accessories/dog.svg").default,
     laptop: require("./assets/accessories/laptop.svg").default,
+  },
+  Mouth: {
+    openMouth: require("./assets/mouth/open-mouth.svg").default,
+    smileMouth: require("./assets/mouth/smile-mouth.svg").default,
+    teethMouth: require("./assets/mouth/teeth-mouth.svg").default,
+  },
+  Glasses: {
+    flat: require("./assets/glasses/flat.svg").default,
+    round: require("./assets/glasses/round.svg").default,
+  },
+  Tabs: {
+    eyes: require("./assets/tabs/eyes.png").default,
+    vector: require("./assets/tabs/vector.png").default,
+    hobbies: require("./assets/tabs/hobbies.png").default,
+    pets: require("./assets/tabs/pets.png").default,
+  },
+  Cells: {
+    cell1: require("./assets/cells/cell-1.svg").default,
+    dendrites: require("./assets/cells/dendrites.svg").default,
   },
 };

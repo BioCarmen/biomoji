@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function hand2(props: {
+export default function cell1(props: {
   fillColor: string;
   strokeColor: string;
   face: "default" | "narrow" | "rounder";

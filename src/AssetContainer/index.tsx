@@ -9,11 +9,11 @@ import { HandsPanel } from "./hands";
 import { AccessoriesPanel } from "./accessories";
 import { OwnColorPicker } from "src/components/color-picker";
 import "./index.scss";
+import { MouthPanel } from "./mouth";
+import { CellsPanel } from "./cells";
 // All custom elements should pass through other props
 const CustomTab = ({ children, ...otherProps }) => (
-  <Tab {...otherProps}>
-    <h1>{children}</h1>
-  </Tab>
+  <Tab {...otherProps}>{children}</Tab>
 );
 
 CustomTab.tabsRole = "Tab"; // Required field to use your custom Tab
@@ -24,6 +24,8 @@ export const AssetContainer = ({
   handleHandsClick,
   handleColor,
   handleAccessoriesClick,
+  handleMouthClick,
+  handleCellClick,
 }) => {
   // const passAsset =
   const [tabIndex, setTabIndex] = useState(0);
@@ -77,21 +79,53 @@ export const AssetContainer = ({
         onSelect={(index) => setTabIndex(index)}
       >
         <TabList>
-          <CustomTab>Head</CustomTab>
-          <CustomTab>Eyes</CustomTab>
-          <CustomTab>Hands</CustomTab>
-          <CustomTab>Accessories</CustomTab>
-          <CustomTab>Hat</CustomTab>
-          <CustomTab>Glasses</CustomTab>
+          <CustomTab>
+            <img className="tabs-image " src={Icons.Tabs.vector}></img>
+            <h1>Base</h1>
+          </CustomTab>
+          <CustomTab>
+            <img className="tabs-image " src={Icons.Tabs.eyes}></img>
+            <h1>Cell</h1>
+          </CustomTab>
+          <CustomTab>
+            <img className="tabs-image " src={Icons.Tabs.eyes}></img>
+            <h1>Eyes</h1>
+          </CustomTab>
+          <CustomTab>
+            <img className="tabs-image " src={Icons.Tabs.eyes}></img>
+            <h1>Mouth</h1>
+          </CustomTab>
+          <CustomTab>
+            <img className="tabs-image " src={Icons.Tabs.eyes}></img>
+            <h1>Clothing</h1>
+          </CustomTab>
+          <CustomTab>
+            <img className="tabs-image " src={Icons.Tabs.eyes}></img>
+            <h1>Handled</h1>
+          </CustomTab>
+          <CustomTab>
+            <img className="tabs-image " src={Icons.Tabs.hobbies}></img>
+            <h1>Hobbies</h1>
+          </CustomTab>
+          <CustomTab>
+            <img className="tabs-image " src={Icons.Tabs.pets}></img>
+            <h1>Pets</h1>
+          </CustomTab>
         </TabList>
         <TabPanel>
           <HeadPanel handleClick={handleClick} />
+        </TabPanel>
+        <TabPanel>
+          <CellsPanel handleCellClick={handleCellClick} />
         </TabPanel>
         <TabPanel>
           <EyesPanel handleEyeClick={handleEyeClick} />
         </TabPanel>
         <TabPanel>
           <HandsPanel handleHandsClick={handleHandsClick} />
+        </TabPanel>
+        <TabPanel>
+          <MouthPanel handleMouthClick={handleMouthClick} />
         </TabPanel>
         <TabPanel>
           <AccessoriesPanel handleAccessoriesClick={handleAccessoriesClick} />

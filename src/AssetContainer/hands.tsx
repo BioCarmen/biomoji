@@ -19,9 +19,23 @@ export const HandsPanel = ({ handleHandsClick }) => {
 
       <div>
         <img
-          src={Icons.Hands.hands2}
+          src={Icons.Hands.handWithBeer}
           alt="hands 2"
-          onClick={() => assetClick("hands2")}
+          onClick={() => assetClick("handWithBeer")}
+        />
+      </div>
+      <div>
+        <img
+          src={Icons.Hands.handWithBurger}
+          alt="hands 2"
+          onClick={() => assetClick("handWithBurger")}
+        />
+      </div>
+      <div>
+        <img
+          src={Icons.Hands.handWithPizza}
+          alt="handWithPizza"
+          onClick={() => assetClick("handWithPizza")}
         />
       </div>
     </div>

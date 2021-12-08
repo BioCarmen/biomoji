@@ -18,7 +18,7 @@ export const OwnColorPicker = ({ handleColor, colorType }) => {
   }, [color]);
   return (
     <ColorPicker
-      width={200}
+      width={300}
       height={100}
       color={color}
       onChange={setColor}

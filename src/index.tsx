@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useLayoutEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import type { NiceAvatarProps } from "./types";
@@ -16,6 +16,7 @@ import Nose from "./nose";
 import Mouth from "./mouth";
 import Shirt from "./shirt";
 import Hands from "./hands";
+import Cell from "./cell";
 import Accessories from "./accessories";
 import { AssetContainer } from "./AssetContainer/index";
 import Icon from "./components/Icon";
@@ -23,33 +24,6 @@ import "./index.scss";
 import { OwnColorPicker } from "./components/color-picker";
 
 export const ReactNiceAvatar = (props) => {
-  const propTypes = {
-    id: PropTypes.string,
-    className: PropTypes.string,
-    style: PropTypes.object,
-    shape: PropTypes.oneOf(["circle", "rounded", "square"]),
-    sex: PropTypes.oneOf(defaultOptions.sex),
-    faceColor: PropTypes.string,
-    earSize: PropTypes.oneOf(defaultOptions.earSize),
-    hairColor: PropTypes.string,
-    hairStyle: PropTypes.oneOf(
-      (defaultOptions.hairStyleMan as string[]).concat(
-        defaultOptions.hairStyleWoman as string[]
-      )
-    ),
-    hatColor: PropTypes.string,
-    hatStyle: PropTypes.oneOf(defaultOptions.hatStyle),
-    hairColorRandom: PropTypes.bool,
-    eyeStyle: PropTypes.oneOf(defaultOptions.eyeStyle),
-    glassesStyle: PropTypes.oneOf(defaultOptions.glassesStyle),
-    noseStyle: PropTypes.oneOf(defaultOptions.noseStyle),
-    mouthStyle: PropTypes.oneOf(defaultOptions.mouthStyle),
-    shirtStyle: PropTypes.oneOf(defaultOptions.shirtStyle),
-    shirtColor: PropTypes.string,
-    bgColor: PropTypes.string,
-    isGradient: PropTypes.bool,
-  };
-
   const {
     id,
     className,
@@ -69,6 +43,11 @@ export const ReactNiceAvatar = (props) => {
   const [accessory3, setAccessory3] = useState("");
   const [accessory4, setAccessory4] = useState("");
   const [selectedPos, setSelectedPos] = useState(0);
+  const [mouthStyle, setMouthStyle] = useState("");
+  const [handPos, setHandPos] = useState("");
+  const [leftHand, setLeftHand] = useState("");
+  const [rightHand, setRightHand] = useState("");
+  const [cellStyle, setCellStyle] = useState("");
   // Background shape
   let borderRadius;
   switch (shape) {
@@ -92,11 +71,16 @@ export const ReactNiceAvatar = (props) => {
     setEyeStyle(style);
   };
   const handleHandsClick = (style) => {
-    setHandsStyle(style);
+    console.log(handPos, style);
+    if (handPos === "left") {
+      setLeftHand(style);
+    }
+    if (handPos === "right") {
+      setRightHand(style);
+    }
   };
 
   const handleColor = (color, colorType) => {
-    console.log(color.hex, colorType);
     // if (colorType == "fill") {
     setFillColor(color.hex);
     const _strokeColor = adjustColor(color.hex, -40);
@@ -104,7 +88,6 @@ export const ReactNiceAvatar = (props) => {
     // }
   };
   const handleAccessoriesClick = (style) => {
-    console.log(style, selectedPos);
     if (selectedPos === 1) {
       setAccessory1(style);
     }
@@ -120,6 +103,15 @@ export const ReactNiceAvatar = (props) => {
   };
   const handleClickControl = (value) => {
     setSelectedPos(value);
+  };
+  const handleMouthStyle = (style) => {
+    setMouthStyle(style);
+  };
+  const handleHandPos = (value) => {
+    setHandPos(value);
+  };
+  const handleCellClick = (style) => {
+    setCellStyle(style);
   };
 
   return (
@@ -162,10 +154,25 @@ export const ReactNiceAvatar = (props) => {
                   shape={face}
                 />
                 <Hands
-                  style={handsStyle}
+                  style={leftHand}
                   fillColor={fillColor}
                   strokeColor={strokeColor}
                   face={face}
+                  position={"left"}
+                />
+                <Hands
+                  style={rightHand}
+                  fillColor={fillColor}
+                  strokeColor={strokeColor}
+                  face={face}
+                  position={"right"}
+                />
+                <Cell
+                  style={cellStyle}
+                  fillColor={fillColor}
+                  strokeColor={strokeColor}
+                  face={face}
+                  position={"right"}
                 />
                 {/* <Hat color={config.hatColor} style={config.hatStyle} /> */}
                 {/* {config.hatStyle === "none" && (
@@ -211,6 +218,7 @@ export const ReactNiceAvatar = (props) => {
                 >
                   {/* <Eyebrow style={config.eyeBrowStyle} /> */}
                   <Eye style={eyeStyle} />
+                  <Mouth style={mouthStyle} />
                   {/* <Glasses style={config.glassesStyle} />
               <Ear color={config.faceColor} size={config.earSize} />
               <Nose style={config.noseStyle} />
@@ -270,11 +278,21 @@ export const ReactNiceAvatar = (props) => {
               </div>
             </div>
             <div className="playground-editor__section-1-controllers-hand-control">
-              <div className={`circle-base left`}></div>
+              <div
+                className={`circle-base left ${
+                  handPos === "left" ? "selected" : ""
+                }`}
+                onClick={() => handleHandPos("left")}
+              ></div>
               <div className={`circle-base center`}></div>
-              <div className={`circle-base right`}></div>
+              <div
+                className={`circle-base right ${
+                  handPos === "right" ? "selected" : ""
+                }`}
+                onClick={() => handleHandPos("right")}
+              ></div>
             </div>
-            {/* <OwnColorPicker handleColor={handleColor} colorType={"#fff"} /> */}
+
             <div className="playground-editor__section-1-controllers-color-picker">
               <OwnColorPicker handleColor={handleColor} colorType={"#fff"} />
             </div>
@@ -288,6 +306,8 @@ export const ReactNiceAvatar = (props) => {
             handleHandsClick={handleHandsClick}
             handleColor={handleColor}
             handleAccessoriesClick={handleAccessoriesClick}
+            handleMouthClick={handleMouthStyle}
+            handleCellClick={handleCellClick}
           />
         </div>
       </div>
