@@ -10,8 +10,6 @@
     "avatar",
     "react-avatar"
   ],
-  "author": "Dapi",
-  "license": "MIT",
   "peerDependencies": {
     "react": ">=16.0.0"
   },
