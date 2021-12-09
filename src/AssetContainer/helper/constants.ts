@@ -7,3 +7,5 @@ export const accessoriesItem = [
   "microscope",
   "skateboard",
 ];
+
+export const mouthItems = ["out", "round", "tiny", "open", "smile", "teeth"];

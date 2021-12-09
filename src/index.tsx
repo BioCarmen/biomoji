@@ -66,7 +66,7 @@ export const ReactNiceAvatar = (props) => {
   });
   const [currentItem, setCurrentItem] = useState("");
   const [sliderVal, setSliderVal] = useState(50);
-  const [sliderVerticalVal, setSliderVerticalVal] = useState(25);
+  const [sliderVerticalVal, setSliderVerticalVal] = useState(40);
 
   // Background shape
   let borderRadius;

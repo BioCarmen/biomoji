@@ -43,9 +43,12 @@ export const Icons = {
     skateboard: require("./assets/accessories/skateboard.svg").default,
   },
   Mouth: {
-    openMouth: require("./assets/mouth/open-mouth.svg").default,
-    smileMouth: require("./assets/mouth/smile-mouth.svg").default,
-    teethMouth: require("./assets/mouth/teeth-mouth.svg").default,
+    open: require("./assets/mouth/open-mouth.svg").default,
+    smile: require("./assets/mouth/smile-mouth.svg").default,
+    teeth: require("./assets/mouth/teeth-mouth.svg").default,
+    out: require("./assets/mouth/mouth-out.svg").default,
+    round: require("./assets/mouth/mouth-round-open.svg").default,
+    tiny: require("./assets/mouth/mouth-tiny-open.svg").default,
   },
   Clothing: {
     flat: require("./assets/clothing/flat.svg").default,

@@ -1,6 +1,7 @@
 import React from "react";
 import { Icons } from "../icons";
 import "./assets.scss";
+import { mouthItems } from "./helper/constants";
 
 export const MouthPanel = ({ handleMouthClick }) => {
   const assetClick = (style) => {
@@ -8,28 +9,17 @@ export const MouthPanel = ({ handleMouthClick }) => {
   };
   return (
     <div className="asset-panel">
-      <div>
-        <img
-          src={Icons.Mouth.openMouth}
-          alt="open mouth"
-          onClick={() => assetClick("open")}
-        />
-      </div>
-
-      <div>
-        <img
-          src={Icons.Mouth.smileMouth}
-          alt="smile mouth"
-          onClick={() => assetClick("smile")}
-        />
-      </div>
-      <div>
-        <img
-          src={Icons.Mouth.teethMouth}
-          alt="teeth mouth"
-          onClick={() => assetClick("teeth")}
-        />
-      </div>
+      {mouthItems.map((item) => {
+        return (
+          <div>
+            <img
+              src={Icons.Mouth[item]}
+              alt={item}
+              onClick={() => assetClick(item)}
+            />
+          </div>
+        );
+      })}
       <div>
         <img
           src={Icons.Tabs.remove}

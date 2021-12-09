@@ -85,7 +85,6 @@ export const AssetContainer = ({
             handleChooseCurrentItem={handleChooseCurrentItem}
           />
         </TabPanel>
-
         <TabPanel>
           <CellsPanel
             handleCellClick={handleCellClick}
