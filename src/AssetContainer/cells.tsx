@@ -28,6 +28,7 @@ export const CellsPanel = ({ handleCellClick, handleChooseCurrentItem }) => {
       <div>
         <img
           src={Icons.Tabs.remove}
+          className="remove-icon"
           alt="remove"
           onClick={() => assetClick("", "")}
         />

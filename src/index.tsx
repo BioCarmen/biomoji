@@ -1,4 +1,9 @@
-import React, { Component, useLayoutEffect, useState } from "react";
+import React, {
+  Component,
+  useCallback,
+  useLayoutEffect,
+  useState,
+} from "react";
 import PropTypes from "prop-types";
 
 import type { NiceAvatarProps } from "./types";
@@ -23,6 +28,7 @@ import Icon from "./components/Icon";
 import "./index.scss";
 import { OwnColorPicker } from "./components/color-picker";
 import baseballCap from "./clothing/baseball-cap";
+import { Icons } from "./icons";
 
 export const ReactNiceAvatar = (props) => {
   const {
@@ -59,6 +65,8 @@ export const ReactNiceAvatar = (props) => {
     baseballCap: { strokeColor: "#848f9c", fillColor: "#b5bec9" },
   });
   const [currentItem, setCurrentItem] = useState("");
+  const [sliderVal, setSliderVal] = useState(50);
+  const [sliderVerticalVal, setSliderVerticalVal] = useState(25);
 
   // Background shape
   let borderRadius;
@@ -151,7 +159,20 @@ export const ReactNiceAvatar = (props) => {
     console.log(value);
     setCurrentItem(value);
   };
-
+  const handleChangeSlider = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const val = parseFloat(e.target.value);
+      setSliderVal(val);
+    },
+    []
+  );
+  const handleChangeVerticalSlider = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const val = parseFloat(e.target.value);
+      setSliderVerticalVal(val);
+    },
+    []
+  );
   return (
     <div className="body">
       <div className="header">
@@ -159,6 +180,19 @@ export const ReactNiceAvatar = (props) => {
       </div>
       <div className="playground">
         <div className="playground-header">Build-a-biomoji</div>
+        <input
+          aria-label="zoom slider"
+          className="slider"
+          type="range"
+          min={0}
+          max={100}
+          value={sliderVal}
+          onChange={handleChangeSlider}
+          step={1}
+          style={{ cursor: "pointer" }}
+          alt="slider"
+        />
+
         <div className="playground-body">
           {!face && (
             <div className="placeholder">
@@ -261,26 +295,47 @@ export const ReactNiceAvatar = (props) => {
                   >
                     {/* <Eyebrow style={config.eyeBrowStyle} /> */}
                     <Eye style={eyeStyle} />
-                    <Mouth style={mouthStyle} />
+                    <Mouth
+                      style={mouthStyle}
+                      sliderVal={sliderVal}
+                      sliderVerticalVal={sliderVerticalVal}
+                    />
                     <Clothing style={hatStyle} face={face} colors={colors} />
                     <Clothing style={glassStyle} />
                     <Clothing style={headphoneStyle} face={face} />
                     <Clothing style={maskStyle} face={face} />
                     <Clothing style={neckStyle} face={face} />
-                    {/* <Glasses style={config.glassesStyle} />
-              <Ear color={config.faceColor} size={config.earSize} />
-              <Nose style={config.noseStyle} />
-              <Mouth style={config.mouthStyle} /> */}
                   </div>
-
-                  {/* <Shirt color={config.shirtColor} style={config.shirtStyle} /> */}
                 </div>
               </div>
-              {/* <Face color={config.faceColor} /> */}
             </div>
           )}
         </div>
-        {face && <button onClick={download}>download</button>}
+
+        {face && (
+          <div className="operations">
+            <img
+              className="save-icon download"
+              src={Icons.Tabs.save}
+              onClick={download}
+            ></img>
+            <img className="save-icon upload" src={Icons.Tabs.save}></img>
+          </div>
+        )}
+      </div>
+      <div>
+        <input
+          aria-label="zoom slider"
+          className="slider vertical-slider"
+          type="range"
+          min={0}
+          max={100}
+          value={sliderVerticalVal}
+          onChange={handleChangeVerticalSlider}
+          step={1}
+          style={{ cursor: "pointer" }}
+          alt="slider"
+        />
       </div>
       <div className="playground-editor">
         <div className="playground-editor__title">Customization</div>
@@ -358,6 +413,7 @@ export const ReactNiceAvatar = (props) => {
             </div>
           </div>
         </div>
+
         <div className="playground-editor__section-2">
           <AssetContainer
             handleClick={handleClick}

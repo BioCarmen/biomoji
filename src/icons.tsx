@@ -25,6 +25,13 @@ export const Icons = {
       .default,
     handWithBurger: require("././assets/hands/default/hand-with-burger.svg")
       .default,
+    handWithTelescope: require("././assets/hands/default/hand-with-telescope.svg")
+      .default,
+    handWithHockey: require("././assets/hands/default/hand-with-hockey.svg")
+      .default,
+    handWithCamera: require("././assets/hands/default/hand-with-camera.svg")
+      .default,
+    handWithArt: require("././assets/hands/default/hand-with-art.svg").default,
   },
   Accessories: {
     cat: require("./assets/accessories/cat.svg").default,
@@ -59,5 +66,11 @@ export const Icons = {
   Cells: {
     cell1: require("./assets/cells/cell-1.svg").default,
     dendrites: require("./assets/cells/dendrites.svg").default,
+  },
+  Hobbies: {
+    beaker: require("./assets/hobbies/beaker.svg").default,
+    hockeySide: require("./assets/hobbies/hockey-side.svg").default,
+    microscope: require("./assets/hobbies/microscope.svg").default,
+    skateboard: require("./assets/hobbies/skateboard.svg").default,
   },
 };

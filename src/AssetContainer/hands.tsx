@@ -41,8 +41,38 @@ export const HandsPanel = ({ handleHandsClick, handleChooseCurrentItem }) => {
       </div>
       <div>
         <img
+          src={Icons.Hands.handWithArt}
+          alt="handWithArt"
+          onClick={() => assetClick("handWithArt", "hand")}
+        />
+      </div>
+      <div>
+        <img
+          src={Icons.Hands.handWithCamera}
+          alt="handWithCamera"
+          onClick={() => assetClick("handWithCamera", "hand")}
+        />
+      </div>
+      <div>
+        <img
+          src={Icons.Hands.handWithTelescope}
+          alt="handWithTelescope"
+          onClick={() => assetClick("handWithTelescope", "hand")}
+        />
+      </div>
+      <div>
+        <img
+          src={Icons.Hands.handWithHockey}
+          alt="handWithHockey"
+          onClick={() => assetClick("handWithHockey", "hand")}
+        />
+      </div>
+
+      <div>
+        <img
           src={Icons.Tabs.remove}
           alt="remove"
+          className="remove-icon"
           onClick={() => assetClick("")}
         />
       </div>

@@ -1,8 +1,13 @@
 import React from "react";
 import { Icons } from "src/icons";
 
-export default function mouth(props: { style: string }) {
-  const { style } = props;
+export default function mouth(props: {
+  style: string;
+  sliderVal;
+  sliderVerticalVal;
+}) {
+  const { style, sliderVal, sliderVerticalVal } = props;
+  console.log(sliderVerticalVal);
   switch (style) {
     case "open":
       return (
@@ -11,8 +16,8 @@ export default function mouth(props: { style: string }) {
             width: "100%",
             height: "100%",
             position: "absolute",
-            top: "-25%",
-            left: "-2%",
+            bottom: `${25 + sliderVerticalVal - 25 - 10}%`,
+            left: `${-2 + sliderVal - 50}%`,
           }}
           src={Icons.Mouth.openMouth}
         />
@@ -25,8 +30,8 @@ export default function mouth(props: { style: string }) {
             width: "100%",
             height: "100%",
             position: "absolute",
-            top: "-25%",
-            left: "-2%",
+            bottom: `${25 + sliderVerticalVal - 25 - 10}%`,
+            left: `${-2 + sliderVal - 50}%`,
           }}
           src={Icons.Mouth.smileMouth}
         />
@@ -38,8 +43,8 @@ export default function mouth(props: { style: string }) {
             width: "100%",
             height: "100%",
             position: "absolute",
-            top: "-25%",
-            left: "-2%",
+            bottom: `${25 + sliderVerticalVal - 25 - 10}%`,
+            left: `${-2 + sliderVal - 50}%`,
           }}
           src={Icons.Mouth.teethMouth}
         />

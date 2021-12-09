@@ -52,7 +52,7 @@
     }
     .playground-editor__section-1 {
       width: 90%;
-      height: auto;
+      // height: 30%;
       background-color: #a3bcd2;
       border-radius: 5%;
       margin-bottom: 5%;
@@ -161,4 +161,27 @@ button {
 .position-control {
   display: flex;
   flex-direction: row;
+}
+.slider {
+  // -webkit-appearance: slider-vertical;
+  width: 80%;
+}
+.vertical-slider {
+  -webkit-appearance: slider-vertical;
+  width: 20px;
+  height: 50%;
+  margin-top: 350px;
+}
+.save-icon {
+  height: 50px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.operations {
+  display: flex;
+  flex-direction: row;
+  .download {
+    margin-right: 100px;
+  }
 }

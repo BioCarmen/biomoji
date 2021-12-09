@@ -35,6 +35,7 @@ export const MouthPanel = ({ handleMouthClick }) => {
           src={Icons.Tabs.remove}
           alt="remove"
           onClick={() => assetClick("")}
+          className="remove-icon"
         />
       </div>
     </div>

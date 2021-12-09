@@ -36,6 +36,7 @@ export const HeadPanel = ({ handleClick, handleChooseCurrentItem }) => {
           src={Icons.Tabs.remove}
           alt="remove"
           onClick={() => assetClick("")}
+          className="remove-icon"
         />
       </div>
     </div>

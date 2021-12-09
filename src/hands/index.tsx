@@ -5,6 +5,10 @@ import HandWithPizza from "./hand-with-pizza";
 import HandWithBurger from "./hand-with-burger";
 import Hand1 from "./hand-with-tube";
 import Hand2 from "./hand2";
+import HandWithTelescope from "./hand-with-telescope";
+import HandWithArt from "./hand-with-art";
+import HandWithCamera from "./hand-with-camera";
+import HandWithHockey from "./hand-with-hockey";
 
 export default function hands(props: {
   fillColor: string;
@@ -88,7 +92,46 @@ export default function hands(props: {
           style={imageStyle}
         />
       );
-
+    case "handWithArt":
+      return (
+        <HandWithArt
+          fillColor={fillColor}
+          strokeColor={strokeColor}
+          face={face}
+          position={position}
+          style={imageStyle}
+        />
+      );
+    case "handWithCamera":
+      return (
+        <HandWithCamera
+          fillColor={fillColor}
+          strokeColor={strokeColor}
+          face={face}
+          position={position}
+          style={imageStyle}
+        />
+      );
+    case "handWithHockey":
+      return (
+        <HandWithHockey
+          fillColor={fillColor}
+          strokeColor={strokeColor}
+          face={face}
+          position={position}
+          style={imageStyle}
+        />
+      );
+    case "handWithTelescope":
+      return (
+        <HandWithTelescope
+          fillColor={fillColor}
+          strokeColor={strokeColor}
+          face={face}
+          position={position}
+          style={imageStyle}
+        />
+      );
     default:
       return <></>;
   }
