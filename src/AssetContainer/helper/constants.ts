@@ -8,4 +8,13 @@ export const accessoriesItem = [
   "skateboard",
 ];
 
-export const mouthItems = ["out", "round", "tiny", "open", "smile", "teeth"];
+export const mouthItems = [
+  "out",
+  "round",
+  "tiny",
+  "open",
+  "teeth",
+  "front",
+  "vshape",
+  "shape3",
+];

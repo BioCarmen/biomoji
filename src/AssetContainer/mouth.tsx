@@ -16,6 +16,7 @@ export const MouthPanel = ({ handleMouthClick }) => {
               src={Icons.Mouth[item]}
               alt={item}
               onClick={() => assetClick(item)}
+              className="mouth-icon"
             />
           </div>
         );

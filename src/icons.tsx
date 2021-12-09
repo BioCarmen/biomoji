@@ -14,7 +14,6 @@ export const Icons = {
     eye3: require("./assets/eyes/eye-3.svg").default,
     eye4: require("./assets/eyes/eye-4.svg").default,
     eye5: require("./assets/eyes/eye-5.svg").default,
-    eye6: require("./assets/eyes/eye-6.svg").default,
   },
   Hands: {
     hands1: require("./assets/hands/default/hand-with-tube.svg").default,
@@ -49,6 +48,9 @@ export const Icons = {
     out: require("./assets/mouth/mouth-out.svg").default,
     round: require("./assets/mouth/mouth-round-open.svg").default,
     tiny: require("./assets/mouth/mouth-tiny-open.svg").default,
+    vshape: require("./assets/mouth/vshape.svg").default,
+    front: require("./assets/mouth/front.svg").default,
+    shape3: require("./assets/mouth/3shape.svg").default,
   },
   Clothing: {
     flat: require("./assets/clothing/flat.svg").default,

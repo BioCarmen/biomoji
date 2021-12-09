@@ -34,6 +34,21 @@ export const EyesPanel = ({ handleEyeClick }) => {
       </div>
       <div>
         <img
+          src={Icons.Eyes.eye4}
+          alt="narrow face"
+          onClick={() => assetClick("eye4")}
+        />
+      </div>
+
+      <div>
+        <img
+          src={Icons.Eyes.eye5}
+          alt="rounder face"
+          onClick={() => assetClick("eye5")}
+        />
+      </div>
+      <div>
+        <img
           src={Icons.Tabs.remove}
           alt="remove"
           className="remove-icon"

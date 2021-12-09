@@ -45,6 +45,33 @@ export default function eyes(props: { style: string }) {
           src={Icons.Eyes.eye3}
         ></img>
       );
+    case "eye4":
+      return (
+        <img
+          style={{
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            top: "-40%",
+            left: "-2.5%",
+          }}
+          src={Icons.Eyes.eye4}
+        ></img>
+      );
+
+    case "eye5":
+      return (
+        <img
+          style={{
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            left: "-2%",
+            top: "-35%",
+          }}
+          src={Icons.Eyes.eye5}
+        ></img>
+      );
     default:
       return <></>;
   }
