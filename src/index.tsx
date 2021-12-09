@@ -230,22 +230,23 @@ export const ReactNiceAvatar = (props) => {
                     strokeColor={colors["head"].strokeColor}
                     shape={face}
                   />
-                  <Hands
-                    style={leftHand}
-                    fillColor={fillColor}
-                    strokeColor={strokeColor}
-                    face={face}
-                    position={"left"}
-                  />
-                  <Hands
-                    style={rightHand}
+
+                  <Cell
+                    style={cellStyle}
                     fillColor={colors["head"].fillColor}
                     strokeColor={colors["head"].strokeColor}
                     face={face}
                     position={"right"}
                   />
-                  <Cell
-                    style={cellStyle}
+                  <Hands
+                    style={leftHand}
+                    fillColor={colors["head"].fillColor}
+                    strokeColor={colors["head"].strokeColor}
+                    face={face}
+                    position={"left"}
+                  />
+                  <Hands
+                    style={rightHand}
                     fillColor={colors["head"].fillColor}
                     strokeColor={colors["head"].strokeColor}
                     face={face}

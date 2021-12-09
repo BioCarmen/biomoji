@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { accessoriesItem } from "src/AssetContainer/helper/constants";
 import { Icons } from "src/icons";
 
 export default function accessories(props: {
@@ -23,7 +24,7 @@ export default function accessories(props: {
         height: "60%",
         position: "absolute",
         top: "-30%",
-        left: "-10%",
+        left: "-15%",
         transform: "scaleX(-1)",
       };
       break;
@@ -51,22 +52,15 @@ export default function accessories(props: {
         height: "60%",
         position: "absolute",
         top: "30%",
-        left: "-10%",
+        left: "-15%",
         transform: "scaleX(-1)",
       };
       break;
   }
 
-  switch (type) {
-    case "cat": {
-      return <img style={style} src={Icons.Accessories.cat}></img>;
-    }
-    case "dog":
-      return <img style={style} src={Icons.Accessories.dog}></img>;
-
-    case "laptop":
-      return <img style={style} src={Icons.Accessories.laptop}></img>;
-    default:
-      return <></>;
+  if (accessoriesItem.includes(type)) {
+    return <img style={style} src={Icons.Accessories[type]} />;
+  } else {
+    return <></>;
   }
 }

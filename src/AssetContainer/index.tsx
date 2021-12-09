@@ -12,7 +12,7 @@ import "./index.scss";
 import { MouthPanel } from "./mouth";
 import { CellsPanel } from "./cells";
 import { ClothingPanel } from "./clothing";
-import { HobbiesPanel } from "./habbies";
+import { HobbiesPanel } from "./hobbies";
 // All custom elements should pass through other props
 const CustomTab = ({ children, ...otherProps }) => (
   <Tab {...otherProps}>{children}</Tab>
@@ -55,7 +55,7 @@ export const AssetContainer = ({
             <h1>Base</h1>
           </CustomTab>
           <CustomTab>
-            <img className="tabs-image " src={Icons.Tabs.eyes}></img>
+            <img className="tabs-image " src={Icons.Tabs.cell}></img>
             <h1>Cell</h1>
           </CustomTab>
           <CustomTab>
@@ -76,11 +76,7 @@ export const AssetContainer = ({
           </CustomTab>
           <CustomTab>
             <img className="tabs-image " src={Icons.Tabs.hobbies}></img>
-            <h1>Hobbies</h1>
-          </CustomTab>
-          <CustomTab>
-            <img className="tabs-image " src={Icons.Tabs.pets}></img>
-            <h1>Pets</h1>
+            <h1>Accessories</h1>
           </CustomTab>
         </TabList>
         <TabPanel>
@@ -114,9 +110,7 @@ export const AssetContainer = ({
             handleChooseCurrentItem={handleChooseCurrentItem}
           />
         </TabPanel>
-        <TabPanel>
-          <HobbiesPanel handleAccessoriesClick={handleAccessoriesClick} />
-        </TabPanel>
+
         <TabPanel>
           <AccessoriesPanel handleAccessoriesClick={handleAccessoriesClick} />
         </TabPanel>

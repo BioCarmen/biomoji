@@ -37,6 +37,10 @@ export const Icons = {
     cat: require("./assets/accessories/cat.svg").default,
     dog: require("./assets/accessories/dog.svg").default,
     laptop: require("./assets/accessories/laptop.svg").default,
+    beaker: require("./assets/accessories/beaker.svg").default,
+    hockey: require("./assets/accessories/hockey-side.svg").default,
+    microscope: require("./assets/accessories/microscope.svg").default,
+    skateboard: require("./assets/accessories/skateboard.svg").default,
   },
   Mouth: {
     openMouth: require("./assets/mouth/open-mouth.svg").default,
@@ -54,6 +58,7 @@ export const Icons = {
   Tabs: {
     eyes: require("./assets/tabs/eyes.svg").default,
     base: require("./assets/tabs/base.svg").default,
+    cell: require("./assets/tabs/cell.svg").default,
     hobbies: require("./assets/tabs/hobbies.svg").default,
     pets: require("./assets/tabs/pets.svg").default,
     accessories: require("./assets/tabs/accessories.svg").default,
@@ -66,11 +71,5 @@ export const Icons = {
   Cells: {
     cell1: require("./assets/cells/cell-1.svg").default,
     dendrites: require("./assets/cells/dendrites.svg").default,
-  },
-  Hobbies: {
-    beaker: require("./assets/hobbies/beaker.svg").default,
-    hockeySide: require("./assets/hobbies/hockey-side.svg").default,
-    microscope: require("./assets/hobbies/microscope.svg").default,
-    skateboard: require("./assets/hobbies/skateboard.svg").default,
   },
 };
