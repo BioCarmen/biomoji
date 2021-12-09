@@ -238,8 +238,9 @@ export const download = async (value?) => {
   const scale = 2;
   const node = document.getElementById("download-item");
   let blob;
+
   if (node) {
-    if (value) {
+    if (value === "true") {
       blob = await domtoimage.toBlob(node, {
         height: node.offsetHeight * scale,
         style: {

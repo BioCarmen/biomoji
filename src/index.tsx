@@ -70,6 +70,7 @@ export const ReactNiceAvatar = (props) => {
   const [sliderVerticalVal, setSliderVerticalVal] = useState(40);
   const [showSlider, setShowSlider] = useState(false);
   const [tabIndex, setTabIndex] = useState(0);
+  const [transparent, setTransparent] = useState(false);
 
   // Background shape
   let borderRadius;
@@ -215,6 +216,9 @@ export const ReactNiceAvatar = (props) => {
     if (value !== 3) {
       setShowSlider(false);
     }
+  };
+  const handleCheckbox = () => {
+    setTransparent(!transparent);
   };
 
   return (
@@ -367,15 +371,21 @@ export const ReactNiceAvatar = (props) => {
 
         {face && (
           <div className="operations">
-            <img
+            <input
+              type="checkbox"
+              className="transparent-checkbox"
+              onChange={handleCheckbox}
+            ></input>
+            <div className="transparent-text">Transparent Background</div>
+            {/* <img
               className="save-icon download"
               src={Icons.Tabs.save}
               onClick={() => download()}
-            ></img>
+            ></img> */}
             <img
               className="save-icon download-transparent"
               src={Icons.Tabs.save}
-              onClick={() => download(true)}
+              onClick={() => download(`${transparent}`)}
             ></img>
           </div>
         )}
@@ -444,14 +454,14 @@ export const ReactNiceAvatar = (props) => {
                 </div>
                 <div className="playground-editor__section-1-controllers-hand-control">
                   <div
-                    className={`circle-base left ${
+                    className={`circle-base circle-base-small left ${
                       handPos === "left" ? "selected" : ""
                     }`}
                     onClick={() => handleHandPos("left")}
                   ></div>
-                  <div className={`circle-base center`}></div>
+                  <div className={`circle-base circle-base-small center`}></div>
                   <div
-                    className={`circle-base right ${
+                    className={`circle-base circle-base-small right ${
                       handPos === "right" ? "selected" : ""
                     }`}
                     onClick={() => handleHandPos("right")}
@@ -464,7 +474,7 @@ export const ReactNiceAvatar = (props) => {
                 Color Picker
               </div>
               <div className="playground-editor__section-1-subtitle">
-                {`Current Selected Item for color picker: [${currentItem}]`}
+                {`Once you’ve selected a cell body or clothing icon, use the color picker below to customize your biomoji!`}
               </div>
               <div className="playground-editor__section-1-controllers-color-picker">
                 <OwnColorPicker handleColor={handleColor} colorType={"#fff"} />
