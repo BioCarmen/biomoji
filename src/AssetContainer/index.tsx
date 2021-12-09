@@ -11,6 +11,7 @@ import { OwnColorPicker } from "src/components/color-picker";
 import "./index.scss";
 import { MouthPanel } from "./mouth";
 import { CellsPanel } from "./cells";
+import { ClothingPanel } from "./clothing";
 // All custom elements should pass through other props
 const CustomTab = ({ children, ...otherProps }) => (
   <Tab {...otherProps}>{children}</Tab>
@@ -26,6 +27,8 @@ export const AssetContainer = ({
   handleAccessoriesClick,
   handleMouthClick,
   handleCellClick,
+  handleClothingClick,
+  handleChooseCurrentItem,
 }) => {
   // const passAsset =
   const [tabIndex, setTabIndex] = useState(0);
@@ -37,40 +40,7 @@ export const AssetContainer = ({
     }
   };
 
-  // useEffect(() => {
-  //   handleColor(color);
-  // }, [color]);
   return (
-    // <Tabs forceRenderTabPanel defaultIndex={1}>
-    //   <TabList>
-    //     <Tab>Face</Tab>
-    //     <Tab>Eyes</Tab>
-    //   </TabList>
-    //   <TabPanel>
-    //     <HeadPanel handleClick={handleClick} />
-    //   </TabPanel>
-    //   <TabPanel>
-    //     {/* <Tabs forceRenderTabPanel>
-    //       <TabList>
-    //         <Tab>Philip J. Fry</Tab>
-    //         <Tab>Turanga Leela</Tab>
-    //         <Tab>Bender Bending Rodriguez</Tab>
-    //         <Tab>Amy Wong</Tab>
-    //         <Tab>Professor Hubert J. Farnsworth</Tab>
-    //         <Tab>Doctor John Zoidberg</Tab>
-    //       </TabList>
-    //       <TabPanel></TabPanel>
-    //       <TabPanel></TabPanel>
-    //       <TabPanel></TabPanel>
-    //       <TabPanel>
-    //         <p>
-    //           Chinese-Martian intern at Planet Express. Fonfon Ru of Kif Kroker.
-    //         </p>
-    //       </TabPanel>
-    //     </Tabs> */}
-    //     <EyesPanel handleEyeClick={handleEyeClick} />
-    //   </TabPanel>
-    // </Tabs>
     <div>
       <Tabs
         forceRenderTabPanel
@@ -113,10 +83,17 @@ export const AssetContainer = ({
           </CustomTab>
         </TabList>
         <TabPanel>
-          <HeadPanel handleClick={handleClick} />
+          <HeadPanel
+            handleClick={handleClick}
+            handleChooseCurrentItem={handleChooseCurrentItem}
+          />
         </TabPanel>
+
         <TabPanel>
-          <CellsPanel handleCellClick={handleCellClick} />
+          <CellsPanel
+            handleCellClick={handleCellClick}
+            handleChooseCurrentItem={handleChooseCurrentItem}
+          />
         </TabPanel>
         <TabPanel>
           <EyesPanel handleEyeClick={handleEyeClick} />
@@ -125,12 +102,17 @@ export const AssetContainer = ({
           <MouthPanel handleMouthClick={handleMouthClick} />
         </TabPanel>
         <TabPanel>
-          <AccessoriesPanel handleAccessoriesClick={handleAccessoriesClick} />
+          <ClothingPanel
+            handleClothingClick={handleClothingClick}
+            handleChooseCurrentItem={handleChooseCurrentItem}
+          />
         </TabPanel>
         <TabPanel>
-          <HandsPanel handleHandsClick={handleHandsClick} />
+          <HandsPanel
+            handleHandsClick={handleHandsClick}
+            handleChooseCurrentItem={handleChooseCurrentItem}
+          />
         </TabPanel>
-
         <TabPanel>
           <AccessoriesPanel handleAccessoriesClick={handleAccessoriesClick} />
         </TabPanel>

@@ -36,9 +36,13 @@ export const Icons = {
     smileMouth: require("./assets/mouth/smile-mouth.svg").default,
     teethMouth: require("./assets/mouth/teeth-mouth.svg").default,
   },
-  Glasses: {
-    flat: require("./assets/glasses/flat.svg").default,
-    round: require("./assets/glasses/round.svg").default,
+  Clothing: {
+    flat: require("./assets/clothing/flat.svg").default,
+    round: require("./assets/clothing/round.svg").default,
+    baseballCap: require("./assets/clothing/baseball-cap.svg").default,
+    beanie: require("./assets/clothing/beanie.svg").default,
+    headphone: require("./assets/clothing/headphone.svg").default,
+    mask: require("./assets/clothing/mask.svg").default,
   },
   Tabs: {
     eyes: require("./assets/tabs/eyes.svg").default,

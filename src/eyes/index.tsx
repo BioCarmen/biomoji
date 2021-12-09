@@ -11,7 +11,7 @@ export default function eyes(props: { style: string }) {
             width: "100%",
             height: "100%",
             position: "absolute",
-            top: "-35%",
+            top: "-30%",
             left: "-3%",
           }}
           src={Icons.Eyes.eye1}
@@ -25,7 +25,8 @@ export default function eyes(props: { style: string }) {
             width: "100%",
             height: "100%",
             position: "absolute",
-            top: "-35%",
+            top: "-31%",
+            left: "-1.5%",
           }}
           src={Icons.Eyes.eye2}
         ></img>

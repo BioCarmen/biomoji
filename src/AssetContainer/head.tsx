@@ -3,8 +3,9 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { Icons } from "../icons";
 import "./assets.scss";
 
-export const HeadPanel = ({ handleClick }) => {
+export const HeadPanel = ({ handleClick, handleChooseCurrentItem }) => {
   const assetClick = (style) => {
+    handleChooseCurrentItem("head");
     handleClick(style);
   };
   return (

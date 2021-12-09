@@ -11,7 +11,7 @@ import Hat from "./hat";
 import Ear from "./ear";
 import Eyebrow from "./eyebrow";
 import Eye from "./eyes";
-import Glasses from "./glasses";
+import Clothing from "./clothing";
 import Nose from "./nose";
 import Mouth from "./mouth";
 import Shirt from "./shirt";
@@ -22,6 +22,7 @@ import { AssetContainer } from "./AssetContainer/index";
 import Icon from "./components/Icon";
 import "./index.scss";
 import { OwnColorPicker } from "./components/color-picker";
+import baseballCap from "./clothing/baseball-cap";
 
 export const ReactNiceAvatar = (props) => {
   const {
@@ -35,7 +36,6 @@ export const ReactNiceAvatar = (props) => {
 
   const [face, setFace] = useState("");
   const [eyeStyle, setEyeStyle] = useState("");
-  const [handsStyle, setHandsStyle] = useState("hands1");
   const [fillColor, setFillColor] = useState("#92dbe0");
   const [strokeColor, setStrokeColor] = useState("#368c8e");
   const [accessory1, setAccessory1] = useState("");
@@ -48,6 +48,18 @@ export const ReactNiceAvatar = (props) => {
   const [leftHand, setLeftHand] = useState("");
   const [rightHand, setRightHand] = useState("");
   const [cellStyle, setCellStyle] = useState("");
+  const [hatStyle, setHatStyle] = useState("");
+  const [glassStyle, setGlassStyle] = useState("");
+  const [headphoneStyle, setHeadphoneStyle] = useState("");
+  const [maskStyle, setMaskStyle] = useState("");
+  const [neckStyle, setNeckStyle] = useState("");
+  const [colors, setColors] = useState({
+    head: { strokeColor: "#368c8e", fillColor: "#92dbe0" },
+    beanie: { strokeColor: "#1e2223", fillColor: "#434444" },
+    baseballCap: { strokeColor: "#848f9c", fillColor: "#b5bec9" },
+  });
+  const [currentItem, setCurrentItem] = useState("");
+
   // Background shape
   let borderRadius;
   switch (shape) {
@@ -71,7 +83,6 @@ export const ReactNiceAvatar = (props) => {
     setEyeStyle(style);
   };
   const handleHandsClick = (style) => {
-    console.log(handPos, style);
     if (handPos === "left") {
       setLeftHand(style);
     }
@@ -79,13 +90,28 @@ export const ReactNiceAvatar = (props) => {
       setRightHand(style);
     }
   };
-
-  const handleColor = (color, colorType) => {
+  console.log(colors);
+  const handleColor = (color) => {
     // if (colorType == "fill") {
+
     setFillColor(color.hex);
     const _strokeColor = adjustColor(color.hex, -40);
     setStrokeColor(_strokeColor ?? "#368c8e");
+
     // }
+    if (colors && currentItem && color.hex && _strokeColor) {
+      if (["hand", "head", "cell"].includes(currentItem)) {
+        let updatedColors = colors;
+        updatedColors["head"].fillColor = color.hex;
+        updatedColors["head"].strokeColor = _strokeColor;
+        setColors(updatedColors);
+      } else {
+        let updatedColors = colors;
+        updatedColors[currentItem].fillColor = color.hex;
+        updatedColors[currentItem].strokeColor = _strokeColor;
+        setColors(updatedColors);
+      }
+    }
   };
   const handleAccessoriesClick = (style) => {
     if (selectedPos === 1) {
@@ -112,6 +138,18 @@ export const ReactNiceAvatar = (props) => {
   };
   const handleCellClick = (style) => {
     setCellStyle(style);
+  };
+  const handleClothingClick = (style, item) => {
+    if (item === "glass") {
+      setGlassStyle(style);
+    }
+    if (item === "hat") {
+      setHatStyle(style);
+    }
+  };
+  const handleChooseCurrentItem = (value) => {
+    console.log(value);
+    setCurrentItem(value);
   };
 
   return (
@@ -154,8 +192,8 @@ export const ReactNiceAvatar = (props) => {
                   }}
                 >
                   <Face
-                    fillColor={fillColor}
-                    strokeColor={strokeColor}
+                    fillColor={colors["head"].fillColor}
+                    strokeColor={colors["head"].strokeColor}
                     shape={face}
                   />
                   <Hands
@@ -167,15 +205,15 @@ export const ReactNiceAvatar = (props) => {
                   />
                   <Hands
                     style={rightHand}
-                    fillColor={fillColor}
-                    strokeColor={strokeColor}
+                    fillColor={colors["head"].fillColor}
+                    strokeColor={colors["head"].strokeColor}
                     face={face}
                     position={"right"}
                   />
                   <Cell
                     style={cellStyle}
-                    fillColor={fillColor}
-                    strokeColor={strokeColor}
+                    fillColor={colors["head"].fillColor}
+                    strokeColor={colors["head"].strokeColor}
                     face={face}
                     position={"right"}
                   />
@@ -224,6 +262,11 @@ export const ReactNiceAvatar = (props) => {
                     {/* <Eyebrow style={config.eyeBrowStyle} /> */}
                     <Eye style={eyeStyle} />
                     <Mouth style={mouthStyle} />
+                    <Clothing style={hatStyle} face={face} colors={colors} />
+                    <Clothing style={glassStyle} />
+                    <Clothing style={headphoneStyle} face={face} />
+                    <Clothing style={maskStyle} face={face} />
+                    <Clothing style={neckStyle} face={face} />
                     {/* <Glasses style={config.glassesStyle} />
               <Ear color={config.faceColor} size={config.earSize} />
               <Nose style={config.noseStyle} />
@@ -314,6 +357,8 @@ export const ReactNiceAvatar = (props) => {
             handleAccessoriesClick={handleAccessoriesClick}
             handleMouthClick={handleMouthStyle}
             handleCellClick={handleCellClick}
+            handleClothingClick={handleClothingClick}
+            handleChooseCurrentItem={handleChooseCurrentItem}
           />
         </div>
       </div>

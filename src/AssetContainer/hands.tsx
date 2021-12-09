@@ -3,8 +3,9 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { Icons } from "../icons";
 import "./assets.scss";
 
-export const HandsPanel = ({ handleHandsClick }) => {
-  const assetClick = (style) => {
+export const HandsPanel = ({ handleHandsClick, handleChooseCurrentItem }) => {
+  const assetClick = (style, item?) => {
+    handleChooseCurrentItem(item ?? "");
     handleHandsClick(style);
   };
   return (
@@ -13,7 +14,7 @@ export const HandsPanel = ({ handleHandsClick }) => {
         <img
           src={Icons.Hands.hands1}
           alt="hand with tube"
-          onClick={() => assetClick("handWithTube")}
+          onClick={() => assetClick("handWithTube", "hand")}
         />
       </div>
 
@@ -21,21 +22,21 @@ export const HandsPanel = ({ handleHandsClick }) => {
         <img
           src={Icons.Hands.handWithBeer}
           alt="hands 2"
-          onClick={() => assetClick("handWithBeer")}
+          onClick={() => assetClick("handWithBeer", "hand")}
         />
       </div>
       <div>
         <img
           src={Icons.Hands.handWithBurger}
           alt="hands 2"
-          onClick={() => assetClick("handWithBurger")}
+          onClick={() => assetClick("handWithBurger", "hand")}
         />
       </div>
       <div>
         <img
           src={Icons.Hands.handWithPizza}
           alt="handWithPizza"
-          onClick={() => assetClick("handWithPizza")}
+          onClick={() => assetClick("handWithPizza", "hand")}
         />
       </div>
       <div>
