@@ -108,7 +108,10 @@
 .playground-editor__section-1-controllers {
   display: flex;
   flex-direction: row;
-
+  .playground-editor__section-1-controllers-controls {
+    display: flex;
+    flex-direction: column;
+  }
   .playground-editor__section-1-controllers-control {
     // border: 1px solid #000000;
     display: flex;
@@ -154,4 +157,8 @@
 }
 button {
   color: #fff !important;
+}
+.position-control {
+  display: flex;
+  flex-direction: row;
 }

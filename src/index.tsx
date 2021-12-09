@@ -285,65 +285,76 @@ export const ReactNiceAvatar = (props) => {
       <div className="playground-editor">
         <div className="playground-editor__title">Customization</div>
         <div className="playground-editor__section-1">
-          <div className="playground-editor__section-1-title">
-            Icon Placement
-          </div>
-          <div className="playground-editor__section-1-subtitle">
-            Before selecting a biomoji accessory, select which corner or arm
-            you'd like your biomoji accessories to placed.
-          </div>
           <div className="playground-editor__section-1-controllers">
-            <div className="playground-editor__section-1-controllers-control">
-              <div className="controller-line-1">
-                <div
-                  className={`circle-base upper-left ${
-                    selectedPos === 1 ? "selected" : ""
-                  }`}
-                  onClick={() => handleClickControl(1)}
-                ></div>
-                <div
-                  className={`circle-base upper-right ${
-                    selectedPos === 2 ? "selected" : ""
-                  }`}
-                  onClick={() => handleClickControl(2)}
-                ></div>
+            <div className="playground-editor__section-1-controllers-controls">
+              <div className="playground-editor__section-1-title">
+                Icon Placement
               </div>
-              <div className="controller-line-2">
-                <div className={`circle-base center`}></div>
+              <div className="playground-editor__section-1-subtitle">
+                Before selecting a biomoji accessory, select which corner or arm
+                you'd like your biomoji accessories to placed.
               </div>
-              <div className="controller-line-3">
-                <div
-                  className={`circle-base bottom-left ${
-                    selectedPos === 4 ? "selected" : ""
-                  }`}
-                  onClick={() => handleClickControl(4)}
-                ></div>
-                <div
-                  className={`circle-base bottom-right ${
-                    selectedPos === 3 ? "selected" : ""
-                  }`}
-                  onClick={() => handleClickControl(3)}
-                ></div>
+              <div className="position-control">
+                <div className="playground-editor__section-1-controllers-control">
+                  <div className="controller-line-1">
+                    <div
+                      className={`circle-base upper-left ${
+                        selectedPos === 1 ? "selected" : ""
+                      }`}
+                      onClick={() => handleClickControl(1)}
+                    ></div>
+                    <div
+                      className={`circle-base upper-right ${
+                        selectedPos === 2 ? "selected" : ""
+                      }`}
+                      onClick={() => handleClickControl(2)}
+                    ></div>
+                  </div>
+                  <div className="controller-line-2">
+                    <div className={`circle-base center`}></div>
+                  </div>
+                  <div className="controller-line-3">
+                    <div
+                      className={`circle-base bottom-left ${
+                        selectedPos === 4 ? "selected" : ""
+                      }`}
+                      onClick={() => handleClickControl(4)}
+                    ></div>
+                    <div
+                      className={`circle-base bottom-right ${
+                        selectedPos === 3 ? "selected" : ""
+                      }`}
+                      onClick={() => handleClickControl(3)}
+                    ></div>
+                  </div>
+                </div>
+                <div className="playground-editor__section-1-controllers-hand-control">
+                  <div
+                    className={`circle-base left ${
+                      handPos === "left" ? "selected" : ""
+                    }`}
+                    onClick={() => handleHandPos("left")}
+                  ></div>
+                  <div className={`circle-base center`}></div>
+                  <div
+                    className={`circle-base right ${
+                      handPos === "right" ? "selected" : ""
+                    }`}
+                    onClick={() => handleHandPos("right")}
+                  ></div>
+                </div>
               </div>
             </div>
-            <div className="playground-editor__section-1-controllers-hand-control">
-              <div
-                className={`circle-base left ${
-                  handPos === "left" ? "selected" : ""
-                }`}
-                onClick={() => handleHandPos("left")}
-              ></div>
-              <div className={`circle-base center`}></div>
-              <div
-                className={`circle-base right ${
-                  handPos === "right" ? "selected" : ""
-                }`}
-                onClick={() => handleHandPos("right")}
-              ></div>
-            </div>
-
-            <div className="playground-editor__section-1-controllers-color-picker">
-              <OwnColorPicker handleColor={handleColor} colorType={"#fff"} />
+            <div className="playground-editor__section-1-controllers-color-picker-section">
+              <div className="playground-editor__section-1-title">
+                Color Picker
+              </div>
+              <div className="playground-editor__section-1-subtitle">
+                {`Current Selected Item for color picker: [${currentItem}]`}
+              </div>
+              <div className="playground-editor__section-1-controllers-color-picker">
+                <OwnColorPicker handleColor={handleColor} colorType={"#fff"} />
+              </div>
             </div>
           </div>
         </div>
