@@ -14,7 +14,7 @@ export const OwnColorPicker = ({ handleColor, colorType }) => {
   }, [colorType]);
 
   useEffect(() => {
-    handleColor(color, colorType);
+    handleColor(color);
   }, [color]);
   return (
     <ColorPicker

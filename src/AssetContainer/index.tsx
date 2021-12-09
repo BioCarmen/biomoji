@@ -30,6 +30,7 @@ export const AssetContainer = ({
   handleCellClick,
   handleClothingClick,
   handleChooseCurrentItem,
+  handleTabIndex,
 }) => {
   // const passAsset =
   const [tabIndex, setTabIndex] = useState(0);
@@ -40,14 +41,17 @@ export const AssetContainer = ({
       setColorType(target.value);
     }
   };
-
+  const handleSelect = (index) => {
+    handleTabIndex(index);
+    setTabIndex(index);
+  };
   return (
     <div>
       <Tabs
         forceRenderTabPanel
         defaultIndex={0}
         selectedIndex={tabIndex}
-        onSelect={(index) => setTabIndex(index)}
+        onSelect={handleSelect}
       >
         <TabList>
           <CustomTab>

@@ -68,6 +68,8 @@ export const ReactNiceAvatar = (props) => {
   const [currentItem, setCurrentItem] = useState("");
   const [sliderVal, setSliderVal] = useState(50);
   const [sliderVerticalVal, setSliderVerticalVal] = useState(40);
+  const [showSlider, setShowSlider] = useState(false);
+  const [tabIndex, setTabIndex] = useState(0);
 
   // Background shape
   let borderRadius;
@@ -101,20 +103,17 @@ export const ReactNiceAvatar = (props) => {
   };
 
   const handleColor = (color) => {
-    // if (colorType == "fill") {
-
     setFillColor(color.hex);
     const _strokeColor = adjustColor(color.hex, -40);
     setStrokeColor(_strokeColor ?? "#368c8e");
 
-    // }
     if (colors && currentItem && color.hex && _strokeColor) {
       if (["hand", "head", "cell", "cell-face"].includes(currentItem)) {
         let updatedColors = colors;
         updatedColors["head"].fillColor = color.hex;
         updatedColors["head"].strokeColor = _strokeColor;
         setColors(updatedColors);
-      } else {
+      } else if (["beanie", "baseballCap"].includes(currentItem)) {
         let updatedColors = colors;
         updatedColors[currentItem].fillColor = color.hex;
         updatedColors[currentItem].strokeColor = _strokeColor;
@@ -140,6 +139,11 @@ export const ReactNiceAvatar = (props) => {
     setSelectedPos(value);
   };
   const handleMouthStyle = (style) => {
+    if (style === "remove") {
+      setShowSlider(false);
+    } else {
+      setShowSlider(true);
+    }
     setMouthStyle(style);
   };
   const handleHandPos = (value) => {
@@ -170,7 +174,13 @@ export const ReactNiceAvatar = (props) => {
     }
   };
   const handleChooseCurrentItem = (value) => {
-    setCurrentItem(value);
+    if (value === "glass") {
+      setCurrentItem("");
+    } else if (value === "cell-face") {
+      setCurrentItem("cell");
+    } else {
+      setCurrentItem(value);
+    }
   };
   const handleChangeSlider = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -186,6 +196,13 @@ export const ReactNiceAvatar = (props) => {
     },
     []
   );
+  const handleTabIndex = (value) => {
+    setTabIndex(value);
+    if (value !== 3) {
+      setShowSlider(false);
+    }
+  };
+
   return (
     <div className="body">
       <div className="header">
@@ -193,18 +210,20 @@ export const ReactNiceAvatar = (props) => {
       </div>
       <div className="playground">
         <div className="playground-header">Build-a-biomoji</div>
-        <input
-          aria-label="zoom slider"
-          className="slider"
-          type="range"
-          min={0}
-          max={100}
-          value={sliderVal}
-          onChange={handleChangeSlider}
-          step={1}
-          style={{ cursor: "pointer" }}
-          alt="slider"
-        />
+        {showSlider && (
+          <input
+            aria-label="zoom slider"
+            className="slider"
+            type="range"
+            min={0}
+            max={100}
+            value={sliderVal}
+            onChange={handleChangeSlider}
+            step={1}
+            style={{ cursor: "pointer" }}
+            alt="slider"
+          />
+        )}
 
         <div className="playground-body">
           {!face && (
@@ -342,20 +361,22 @@ export const ReactNiceAvatar = (props) => {
           </div>
         )}
       </div>
-      <div>
-        <input
-          aria-label="zoom slider"
-          className="slider vertical-slider"
-          type="range"
-          min={0}
-          max={100}
-          value={sliderVerticalVal}
-          onChange={handleChangeVerticalSlider}
-          step={1}
-          style={{ cursor: "pointer" }}
-          alt="slider"
-        />
-      </div>
+      {showSlider && (
+        <div>
+          <input
+            aria-label="zoom slider"
+            className="slider vertical-slider"
+            type="range"
+            min={0}
+            max={100}
+            value={sliderVerticalVal}
+            onChange={handleChangeVerticalSlider}
+            step={1}
+            style={{ cursor: "pointer" }}
+            alt="slider"
+          />
+        </div>
+      )}
       <div className="playground-editor">
         <div className="playground-editor__title">Customization</div>
         <div className="playground-editor__section-1">
@@ -445,6 +466,7 @@ export const ReactNiceAvatar = (props) => {
             handleCellClick={handleCellClick}
             handleClothingClick={handleClothingClick}
             handleChooseCurrentItem={handleChooseCurrentItem}
+            handleTabIndex={handleTabIndex}
           />
         </div>
       </div>
