@@ -74,5 +74,8 @@ export const Icons = {
   Cells: {
     cell1: require("./assets/cells/cell-1.svg").default,
     dendrites: require("./assets/cells/dendrites.svg").default,
+    beard: require("./assets/cells/beard.svg").default,
+    hair: require("./assets/cells/hair.svg").default,
+    nuclei: require("./assets/cells/nuclei.svg").default,
   },
 };

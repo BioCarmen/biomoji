@@ -54,6 +54,7 @@ export const ReactNiceAvatar = (props) => {
   const [leftHand, setLeftHand] = useState("");
   const [rightHand, setRightHand] = useState("");
   const [cellStyle, setCellStyle] = useState("");
+  const [cellFaceStyle, setCellFaceStyle] = useState("");
   const [hatStyle, setHatStyle] = useState("");
   const [glassStyle, setGlassStyle] = useState("");
   const [headphoneStyle, setHeadphoneStyle] = useState("");
@@ -98,7 +99,7 @@ export const ReactNiceAvatar = (props) => {
       setRightHand(style);
     }
   };
-  console.log(colors);
+
   const handleColor = (color) => {
     // if (colorType == "fill") {
 
@@ -108,7 +109,7 @@ export const ReactNiceAvatar = (props) => {
 
     // }
     if (colors && currentItem && color.hex && _strokeColor) {
-      if (["hand", "head", "cell"].includes(currentItem)) {
+      if (["hand", "head", "cell", "cell-face"].includes(currentItem)) {
         let updatedColors = colors;
         updatedColors["head"].fillColor = color.hex;
         updatedColors["head"].strokeColor = _strokeColor;
@@ -144,8 +145,17 @@ export const ReactNiceAvatar = (props) => {
   const handleHandPos = (value) => {
     setHandPos(value);
   };
-  const handleCellClick = (style) => {
-    setCellStyle(style);
+  const handleCellClick = (style, item) => {
+    if (item === "cell") {
+      setCellStyle(style);
+    }
+    if (item === "cell-face") {
+      setCellFaceStyle(style);
+    }
+    if (item === "remove") {
+      setCellStyle("");
+      setCellFaceStyle("");
+    }
   };
   const handleClothingClick = (style, item) => {
     if (item === "glass") {
@@ -154,9 +164,12 @@ export const ReactNiceAvatar = (props) => {
     if (item === "hat") {
       setHatStyle(style);
     }
+    if (item === "remove") {
+      setGlassStyle("");
+      setHatStyle("");
+    }
   };
   const handleChooseCurrentItem = (value) => {
-    console.log(value);
     setCurrentItem(value);
   };
   const handleChangeSlider = useCallback(
@@ -236,7 +249,12 @@ export const ReactNiceAvatar = (props) => {
                     fillColor={colors["head"].fillColor}
                     strokeColor={colors["head"].strokeColor}
                     face={face}
-                    position={"right"}
+                  />
+                  <Cell
+                    style={cellFaceStyle}
+                    fillColor={colors["head"].fillColor}
+                    strokeColor={colors["head"].strokeColor}
+                    face={face}
                   />
                   <Hands
                     style={leftHand}

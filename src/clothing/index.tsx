@@ -7,6 +7,7 @@ import Beanie from "./beanie";
 
 export default function clothing(props: { colors; style: string; face }) {
   const { colors, style, face } = props;
+  console.log(style);
   switch (style) {
     case "round":
       return <Round />;
@@ -28,8 +29,7 @@ export default function clothing(props: { colors; style: string; face }) {
           face={face}
         />
       );
-    case "none":
     default:
-      return null;
+      return <></>;
   }
 }

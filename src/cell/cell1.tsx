@@ -4,10 +4,9 @@ export default function cell1(props: {
   fillColor: string;
   strokeColor: string;
   face: "default" | "narrow" | "rounder";
-  position: "left" | "right";
   style;
 }) {
-  const { fillColor, strokeColor, face, position, style } = props;
+  const { fillColor, strokeColor, face, style } = props;
   switch (face) {
     case "default":
       return (

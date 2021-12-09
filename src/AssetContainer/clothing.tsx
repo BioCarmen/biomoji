@@ -41,6 +41,14 @@ export const ClothingPanel = ({
           onClick={() => assetClick("beanie", "hat", "beanie")}
         />
       </div>
+      <div>
+        <img
+          src={Icons.Tabs.remove}
+          alt="remove"
+          className="remove-icon"
+          onClick={() => assetClick("", "remove")}
+        />
+      </div>
     </div>
   );
 };

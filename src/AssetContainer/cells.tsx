@@ -6,7 +6,7 @@ import "./assets.scss";
 export const CellsPanel = ({ handleCellClick, handleChooseCurrentItem }) => {
   const assetClick = (style, item) => {
     handleChooseCurrentItem(item);
-    handleCellClick(style);
+    handleCellClick(style, item);
   };
   return (
     <div className="asset-panel">
@@ -27,10 +27,31 @@ export const CellsPanel = ({ handleCellClick, handleChooseCurrentItem }) => {
       </div>
       <div>
         <img
+          src={Icons.Cells.beard}
+          alt="beard"
+          onClick={() => assetClick("beard", "cell-face")}
+        />
+      </div>
+      <div>
+        <img
+          src={Icons.Cells.hair}
+          alt="hair"
+          onClick={() => assetClick("hair", "cell-face")}
+        />
+      </div>
+      <div>
+        <img
+          src={Icons.Cells.nuclei}
+          alt="nuclei"
+          onClick={() => assetClick("nuclei", "cell-face")}
+        />
+      </div>
+      <div>
+        <img
           src={Icons.Tabs.remove}
           className="remove-icon"
           alt="remove"
-          onClick={() => assetClick("", "")}
+          onClick={() => assetClick("", "remove")}
         />
       </div>
     </div>
