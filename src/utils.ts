@@ -234,21 +234,36 @@ export function adjustColor(color: string, amount: number) {
   }
 }
 
-export const download = async () => {
+export const download = async (value?) => {
   const scale = 2;
   const node = document.getElementById("download-item");
+  let blob;
   if (node) {
-    const blob = await domtoimage.toBlob(node, {
-      height: node.offsetHeight * scale,
-      style: {
-        transform: `scale(${scale}) translate(${
-          node.offsetWidth / 2 / scale
-        }px, ${node.offsetHeight / 2 / scale}px)`,
-        "border-radius": 0,
-      },
-      width: node.offsetWidth * scale,
-    });
-
-    saveAs(blob, "avatar.png");
+    if (value) {
+      blob = await domtoimage.toBlob(node, {
+        height: node.offsetHeight * scale,
+        style: {
+          transform: `scale(${scale}) translate(${
+            node.offsetWidth / 2 / scale
+          }px, ${node.offsetHeight / 2 / scale}px)`,
+          "border-radius": 0,
+          backgroundColor: "transparent",
+        },
+        width: node.offsetWidth * scale,
+      });
+      saveAs(blob, "biomoji-transparent.png");
+    } else {
+      blob = await domtoimage.toBlob(node, {
+        height: node.offsetHeight * scale,
+        style: {
+          transform: `scale(${scale}) translate(${
+            node.offsetWidth / 2 / scale
+          }px, ${node.offsetHeight / 2 / scale}px)`,
+          "border-radius": 0,
+        },
+        width: node.offsetWidth * scale,
+      });
+      saveAs(blob, "biomoji.png");
+    }
   }
 };

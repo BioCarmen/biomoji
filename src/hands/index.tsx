@@ -3,7 +3,7 @@ import { Icons } from "src/icons";
 import HandWithBeer from "./hand-with-beer";
 import HandWithPizza from "./hand-with-pizza";
 import HandWithBurger from "./hand-with-burger";
-import Hand1 from "./hand-with-tube";
+import HandWithTube from "./hand-with-tube";
 import Hand2 from "./hand2";
 import HandWithTelescope from "./hand-with-telescope";
 import HandWithArt from "./hand-with-art";
@@ -43,7 +43,7 @@ export default function hands(props: {
   switch (style) {
     case "handWithTube": {
       return (
-        <Hand1
+        <HandWithTube
           fillColor={fillColor}
           strokeColor={strokeColor}
           face={face}

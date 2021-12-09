@@ -23,7 +23,7 @@ export default function accessories(props: {
         width: "100%",
         height: "60%",
         position: "absolute",
-        top: "-30%",
+        top: "-60%",
         left: "-15%",
         transform: "scaleX(-1)",
       };
@@ -33,7 +33,7 @@ export default function accessories(props: {
         width: "100%",
         height: "60%",
         position: "absolute",
-        top: "-30%",
+        top: "-60%",
         left: "10%",
       };
       break;
@@ -42,7 +42,7 @@ export default function accessories(props: {
         width: "100%",
         height: "60%",
         position: "absolute",
-        top: "30%",
+        top: "0%",
         left: "10%",
       };
       break;
@@ -51,7 +51,7 @@ export default function accessories(props: {
         width: "100%",
         height: "60%",
         position: "absolute",
-        top: "30%",
+        top: "00%",
         left: "-15%",
         transform: "scaleX(-1)",
       };

@@ -88,6 +88,20 @@ export const ReactNiceAvatar = (props) => {
     }
   }
   const handleClick = (style) => {
+    if (style === "remove") {
+      setEyeStyle("");
+      setAccessory1("");
+      setAccessory2("");
+      setAccessory3("");
+      setAccessory4("");
+      setMouthStyle("");
+      setLeftHand("");
+      setRightHand("");
+      setCellStyle("");
+      setCellFaceStyle("");
+      setHatStyle("");
+      setGlassStyle("");
+    }
     setFace(style);
   };
   const handleEyeClick = (style) => {
@@ -297,26 +311,7 @@ export const ReactNiceAvatar = (props) => {
                 colorRandom={hairColorRandom}
               />
             )} */}
-                  <Accessories
-                    type={accessory1}
-                    position={1}
-                    selected={selectedPos === 1}
-                  />
-                  <Accessories
-                    type={accessory2}
-                    position={2}
-                    selected={selectedPos === 2}
-                  />
-                  <Accessories
-                    type={accessory3}
-                    position={3}
-                    selected={selectedPos === 3}
-                  />
-                  <Accessories
-                    type={accessory4}
-                    position={4}
-                    selected={selectedPos === 4}
-                  />
+
                   {/* Face detail */}
                   <div
                     style={{
@@ -343,6 +338,26 @@ export const ReactNiceAvatar = (props) => {
                     <Clothing style={headphoneStyle} face={face} />
                     <Clothing style={maskStyle} face={face} />
                     <Clothing style={neckStyle} face={face} />
+                    <Accessories
+                      type={accessory1}
+                      position={1}
+                      selected={selectedPos === 1}
+                    />
+                    <Accessories
+                      type={accessory2}
+                      position={2}
+                      selected={selectedPos === 2}
+                    />
+                    <Accessories
+                      type={accessory3}
+                      position={3}
+                      selected={selectedPos === 3}
+                    />
+                    <Accessories
+                      type={accessory4}
+                      position={4}
+                      selected={selectedPos === 4}
+                    />
                   </div>
                 </div>
               </div>
@@ -355,9 +370,13 @@ export const ReactNiceAvatar = (props) => {
             <img
               className="save-icon download"
               src={Icons.Tabs.save}
-              onClick={download}
+              onClick={() => download()}
             ></img>
-            <img className="save-icon upload" src={Icons.Tabs.save}></img>
+            <img
+              className="save-icon download-transparent"
+              src={Icons.Tabs.save}
+              onClick={() => download(true)}
+            ></img>
           </div>
         )}
       </div>
